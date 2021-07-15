@@ -1,3 +1,89 @@
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: "Montserrat", sans-serif;
+  --height: 5rem;
+  --btn-width: 7rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+  --apple-music-col: #f94c57;
+  --spotify-col: #04dc61;
+  --bg-color: url(./images/orange-background.png);
+  --typewriterSpeed: 2.5s;
+  --typewriterCharacters: 24;
+}
+
+
+
+h1 {
+  color: white;
+  top: 40px;
+  left: 20px;
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  font-family: var(--font-fam);
+  position: relative;
+  width: max-content;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+  width: 0.125em;
+  background: gray;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.subtitle {
+  color: white;
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  position: absolute;
+  top: 240px;
+  left: 200px;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,6 +126,14 @@ header {
 
 .nav__links li a:hover {
   color: #0088a9;
+}
+
+.nav__links .apple-music-link a:hover{
+  color: var(--apple-music-col);
+}
+
+.nav__links .spotify-link a:hover {
+  color: var(--spotify-col);
 }
 
 .cta {
@@ -115,13 +209,14 @@ header {
 
 .wrapper .icon {
   position: relative;
-  background-color: #ffffff;
+  top: 520px;
+  left: 525px;
   border-radius: 50%;
   padding: 15px;
   margin: 10px;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
+  width: 150px;
+  height: 150px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,12 +229,12 @@ header {
 .wrapper .tooltip {
   position: absolute;
   top: 0;
-  font-size: 14px;
+  font-size: 25px;
   background-color: #ffffff;
   color: #ffffff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 11px;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -151,7 +246,7 @@ header {
   height: 8px;
   width: 8px;
   background-color: #ffffff;
-  bottom: -3px;
+  bottom: -2px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -172,14 +267,105 @@ header {
 .wrapper .apple-music:hover,
 .wrapper .apple-music:hover .tooltip,
 .wrapper .apple-music:hover .tooltip::before {
-  background-color: red;
+  background-color: var(--apple-music-col);
+  background-position: center;
   color: #ffffff;
+}
+
+.wrapper .apple-music:hover {
+  background-color: var(--apple-music-col);
+  background-image: url(./images/applemusic-colored.png);
+}
+
+.wrapper .apple-music {
+  background-image: url(./images/applemusic-b&w.png);
 }
 
 .wrapper .spotify:hover,
 .wrapper .spotify:hover .tooltip,
 .wrapper .spotify:hover .tooltip::before {
-  background-color: rgb(57, 187, 57);
+  background-color: var(--spotify-col);
+  background-position: center;
+  color: #ffffff;
+}
+
+.wrapper .spotify:hover {
+  background-color: #191414;
+  background-image: url(./images/spotify-colored.png);
+}
+
+.wrapper .spotify {
+  background-color: black;
+  background-image: url(./images/spotify-b&w.png);
+}
+
+.wrapper .artists:hover,
+.wrapper .artists:hover .tooltip,
+.wrapper .artists:hover .tooltip::before {
+  background-color: black;
+  background-position: center;
+  color: #ffffff;
+}
+
+.wrapper .artists:hover {
+  background-color: #191414;
+  background-image: url(./images/artists-colored.jpg);
+}
+
+.wrapper .artists {
+  background-image: url(./images/artists-b&w.png);
+}
+
+.wrapper .artists:hover,
+.wrapper .artists:hover .tooltip,
+.wrapper .artists:hover .tooltip::before {
+  background-color: #27A8E0;
+  color: #ffffff;
+}
+
+.wrapper .songs:hover,
+.wrapper .songs:hover .tooltip,
+.wrapper .songs:hover .tooltip::before {
+  background-position: center;
+  color: #ffffff;
+}
+
+.wrapper .songs:hover {
+  background-color: #191414;
+  background-image: url(./images/songs-colored.png);
+}
+
+.wrapper .songs {
+  background-image: url(./images/songs-b&w.png);
+}
+
+.wrapper .songs:hover,
+.wrapper .songs:hover .tooltip,
+.wrapper .songs:hover .tooltip::before {
+  background-color: 	#e48e26;
+}
+
+.wrapper .albums:hover,
+.wrapper .albums:hover .tooltip,
+.wrapper .albums:hover .tooltip::before {
+  background-color: var(--spotify-col);
+  background-position: center;
+  color: #ffffff;
+}
+
+.wrapper .albums:hover {
+  background-color: #191414;
+  background-image: url(./images/albums-colored.png);
+}
+
+.wrapper .albums {
+  background-image: url(./images/albums-b&w.png);
+}
+
+.wrapper .albums:hover,
+.wrapper .albums:hover .tooltip,
+.wrapper .albums:hover .tooltip::before {
+  background-color: #1565cc;
   color: #ffffff;
 }
 
@@ -190,19 +376,6 @@ header {
   left: 550px;
   bottom: 400px;
 }
-
-:root {
-  --rad: .7rem;
-  --dur: .3s;
-  --color-dark: #2f2f2f;
-  --color-light: #fff;
-  --color-brand: #57bd84;
-  --font-fam: "Montserrat", sans-serif;
-  --height: 5rem;
-  --btn-width: 7rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-
 
 
 form {
@@ -216,7 +389,7 @@ input, button {
   font-family: var(--font-fam);
   border: 0;
   color: var(--color-dark);
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 input[type="search"] {
   outline: 0;
