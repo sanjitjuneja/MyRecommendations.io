@@ -3,7 +3,7 @@
   --dur: .3s;
   --color-dark: #2f2f2f;
   --color-light: #fff;
-  --color-brand: #57bd84;
+  --color-brand: #ff7404;
   --font-fam: "Montserrat", sans-serif;
   --height: 5rem;
   --btn-width: 7rem;
@@ -11,15 +11,40 @@
   --apple-music-col: #f94c57;
   --spotify-col: #04dc61;
   --bg-color: url(./images/orange-background.png);
-  --typewriterSpeed: 2.5s;
-  --typewriterCharacters: 24;
+  --typewriterSpeed: 3s;
+  --typewriterCharacters: 20;
+}
+
+.line-1{
+  position: relative;
+  top: 50px;  
+  width: 12.5em;
+  margin: 30 auto;
+  border-right: 2px solid #ff7404;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+animation: typewriter 2s steps(20) 1s 1 normal both,
+           blinkTextCursor 500ms steps(20) infinite normal;
+}
+@keyframes typewriter{
+from{width: 0;}
+to{width: 12.5em;}
+}
+@keyframes blinkTextCursor{
+from{border-right-color: #ff7404;}
+to{border-right-color: transparent;}
 }
 
 
-
 h1 {
-  color: white;
-  top: 40px;
+  color: #ff7404;
+  top: 11px;
   left: 20px;
   font-size: clamp(1rem, 3vw + 1rem, 4rem);
   position: relative;
@@ -28,7 +53,30 @@ h1 {
   width: max-content;
 }
 
-h1::before,
+p,
+.subtitle {
+  color: #ff5404;
+  font-size: 2rem;
+  font-weight: 400;
+  position: absolute;
+  top: 240px;
+  left: 120px;
+}
+
+.subtitle {
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease 4s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* h1::before,
 h1::after {
   content: "";
   position: absolute;
@@ -53,7 +101,7 @@ h1::after {
 }
 
 .subtitle {
-  color: white;
+  color: #ff7404;
   font-size: 2rem;
   font-weight: 400;
   opacity: 0;
@@ -81,7 +129,7 @@ h1::after {
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 
 * {
@@ -125,7 +173,7 @@ header {
 }
 
 .nav__links li a:hover {
-  color: #0088a9;
+  color: #ff7404;
 }
 
 .nav__links .apple-music-link a:hover{
@@ -138,7 +186,7 @@ header {
 
 .cta {
   padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
+  background-color: #ff7404;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -146,7 +194,7 @@ header {
 }
 
 .cta:hover {
-  background-color: rgba(0, 136, 169, 0.8);
+  background-color: rgba(238, 87, 41, 0.685);
 }
 
 /* Mobile Nav */
@@ -188,7 +236,7 @@ header {
 
 .overlay a:hover,
 .overlay a:focus {
-  color: #0088a9;
+  color: #edf0f1;
 }
 .overlay .close {
   position: absolute;
@@ -345,6 +393,28 @@ header {
   background-color: 	#e48e26;
 }
 
+.wrapper .general:hover,
+.wrapper .general:hover .tooltip,
+.wrapper .general:hover .tooltip::before {
+  background-position: center;
+  color: #ffffff;
+}
+
+.wrapper .general:hover {
+  background-color: #191414;
+  background-image: url(./images/general-colored.png);
+}
+
+.wrapper .general {
+  background-image: url(./images/general-b&w.png);
+}
+
+.wrapper .general:hover,
+.wrapper .general:hover .tooltip,
+.wrapper .general:hover .tooltip::before {
+  background-color: 	#e48e26;
+}
+
 .wrapper .albums:hover,
 .wrapper .albums:hover .tooltip,
 .wrapper .albums:hover .tooltip::before {
@@ -389,7 +459,7 @@ input, button {
   font-family: var(--font-fam);
   border: 0;
   color: var(--color-dark);
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 input[type="search"] {
   outline: 0;

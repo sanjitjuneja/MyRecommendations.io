@@ -40,17 +40,23 @@
             <img src="./images/background.png" alt="background">
         </div>
         <div>
-            <h1 class="line-1 anim-typewriter">MyRecommendations.io</h1>
-            <p class="subtitle">Search Your Favorites, Get Recommendations.</p>
+            <h1>MyRecommendations.io</h1>
+            <p>Search Your Favorites, Get Recommendations.</p>
         </div>
         <div class="search-bar">
             <form onsubmit="event.preventDefault();" role="search">
                 <label for="search">Search for stuff</label>
-                <input id="search" type="search" placeholder="Search Your Favorite Music..." autofocus required />
+                <input id="search" type="search" placeholder="Search Your Favorite Artists..." autofocus required />
                 <button type="submit">Go</button>    
             </form>
         </div>
         <div class="wrapper">
+            <a href="./index.html">
+                <div class="icon general">
+                    <div class="tooltip">General</div>
+                    <span><i class="fab fa-general"></i></span>
+                </div>
+            </a>
             <a href="./apple-music.html">
                 <div class="icon apple-music">
                     <div class="tooltip">Apple Music</div>
@@ -61,12 +67,6 @@
                 <div class="icon spotify">
                     <div class="tooltip">Spotify</div>
                     <span><i class="fab fa-spotify"></i></span>
-                </div>
-            </a>
-            <a href="./artists.html">
-                <div class="icon artists">
-                    <div class="tooltip">Artists</div>
-                    <span><i class="fab fa-artists"></i></span>
                 </div>
             </a>
             <a href="./songs.html">
